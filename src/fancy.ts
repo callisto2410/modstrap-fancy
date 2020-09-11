@@ -182,6 +182,7 @@ class Fancy {
     }
 
     /**
+     * Wrapper for JQuery.FancyBox.close.
      * Close instance.
      *
      * @param all Close all instances?

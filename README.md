@@ -1,6 +1,6 @@
 # modstrap-fancy
 
-Adaptation for jQuery.fancybox.
+Adaptation for jQuery.FancyBox.
 
 ## Installation
 

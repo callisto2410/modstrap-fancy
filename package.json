@@ -1,7 +1,7 @@
 {
   "name": "@modstrap/fancy",
   "version": "1.0.0",
-  "description": "Adaptation for jQuery.fancybox.",
+  "description": "Adaptation for jQuery.FancyBox.",
   "main": "src/fancy.ts",
   "author": "Callisto (https://github.com/callisto2410)",
   "license": "MIT",
