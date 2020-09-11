@@ -1,0 +1,40 @@
+{
+  "name": "@modstrap/fancy",
+  "version": "1.0.0",
+  "description": "Adaptation for jQuery.fancybox.",
+  "main": "src/fancy.ts",
+  "author": "Callisto (https://github.com/callisto2410)",
+  "license": "MIT",
+  "homepage": "https://github.com/callisto2410/modstrap-fancy",
+  "bugs": {
+    "url": "https://github.com/callisto2410/modstrap-fancy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callisto2410/modstrap-fancy.git"
+  },
+  "scripts": {
+    "build": "webpack --mode production --devtool 'source-map' --config webpack.config.js",
+    "build:watch": "webpack --watch --mode production --devtool 'source-map' --config webpack.config.js"
+  },
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@modstrap/lexicon": "git+https://github.com/callisto2410/modstrap-lexicon.git#v1.0.0",
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "@types/fancybox": "^3.5.2",
+    "@types/jquery": "^3.5.1",
+    "@types/node": "^14.6.4",
+    "autoprefixer": "^9.7.6",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^3.5.3",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "typescript": "^4.0.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}

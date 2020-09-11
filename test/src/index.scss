@@ -1,0 +1,156 @@
+@import "../../src/fancy";
+
+body {
+  margin: 0;
+  background: #ffffff;
+}
+
+article {
+  color: #444444;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: 960px;
+  margin: auto;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+  @media (max-width: 1024px) {
+    padding-bottom: 10px;
+  }
+}
+
+%grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+
+    .item,
+    .button {
+      margin: 0 5px 10px;
+    }
+  }
+}
+
+%button {
+  width: 230px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 14px 'Arial';
+  color: #efefee;
+  text-transform: uppercase;
+  user-select: none;
+  cursor: pointer;
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+@mixin background($background) {
+  @for $i from 1 through 4 {
+    &:nth-child(4n + #{$i}) {
+      background-color: darken($background, $i * 5%);
+    }
+  }
+}
+
+/* Images. */
+.images {
+  @extend %grid;
+  margin: 0 0 12px;
+
+  .item {
+    width: 230px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+/* Video. */
+.video {
+  @extend %grid;
+  margin: 0 0 12px;
+
+  .button {
+    @extend %button;
+    @include background(#d32f2f);
+    text-decoration: none;
+  }
+
+  @media (max-width: 1024px) {
+    margin: 0 0 10px;
+  }
+}
+
+/* IFrame. */
+.iframe {
+  @extend %grid;
+  margin: 0 0 12px;
+
+  .button {
+    @extend %button;
+    @include background(#0097a7);
+    text-decoration: none;
+  }
+
+  @media (max-width: 1024px) {
+    margin: 0 0 10px;
+  }
+}
+
+/* Inline. */
+.inline {
+  @extend %grid;
+  margin: 0 0 12px;
+
+  .button {
+    @extend %button;
+    @include background(#00796b);
+  }
+
+  .item {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    margin: 0 0 10px;
+  }
+}
+
+.fancy-item-inline {
+  max-width: 100%;
+  width: 425px;
+  padding: 30px;
+  font: 14px 'Arial';
+  text-align: justify;
+}
+
+/* Toggle language. */
+.toggle-lang {
+  @extend %button;
+  @include background(#0097a7);
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 20px;
+  }
+}
