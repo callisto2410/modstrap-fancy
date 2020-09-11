@@ -92,19 +92,21 @@ class Fancy {
 
         Lexicon.extend(this.translations);
 
-        $.fancybox.defaults.i18n['lexicon'] = {
-            CLOSE: Lexicon.get('fancy_close'),
-            NEXT: Lexicon.get('fancy_next'),
-            PREV: Lexicon.get('fancy_prev'),
-            ERROR: Lexicon.get('fancy_error'),
-            PLAY_START: Lexicon.get('fancy_play_start'),
-            PLAY_STOP: Lexicon.get('fancy_play_stop'),
-            FULL_SCREEN: Lexicon.get('fancy_screen'),
-            THUMBS: Lexicon.get('fancy_thumbs'),
-            DOWNLOAD: Lexicon.get('fancy_download'),
-            SHARE: Lexicon.get('fancy_share'),
-            ZOOM: Lexicon.get('fancy_zoom'),
-        };
+        if ($.fancybox.defaults.i18n) {
+            $.fancybox.defaults.i18n['lexicon'] = {
+                CLOSE: Lexicon.get('fancy_close'),
+                NEXT: Lexicon.get('fancy_next'),
+                PREV: Lexicon.get('fancy_prev'),
+                ERROR: Lexicon.get('fancy_error'),
+                PLAY_START: Lexicon.get('fancy_play_start'),
+                PLAY_STOP: Lexicon.get('fancy_play_stop'),
+                FULL_SCREEN: Lexicon.get('fancy_screen'),
+                THUMBS: Lexicon.get('fancy_thumbs'),
+                DOWNLOAD: Lexicon.get('fancy_download'),
+                SHARE: Lexicon.get('fancy_share'),
+                ZOOM: Lexicon.get('fancy_zoom'),
+            };
+        }
     }
 
     /**
@@ -126,8 +128,8 @@ class Fancy {
             "close",
         ];
 
-        delete $.fancybox.defaults.i18n.en;
-        delete $.fancybox.defaults.i18n.de;
+        delete $.fancybox.defaults.i18n?.en;
+        delete $.fancybox.defaults.i18n?.de;
 
         this.initiated = true;
     }
@@ -176,9 +178,9 @@ class Fancy {
      * @param mixed Options or index.
      * @param index The index of the item in the group.
      */
-    static open(items: string | JQuery | FancyGroupItem | FancyGroupItem[], mixed?: FancyBoxOptions | number, index?: number): FancyBoxInstance {
-        const _options: FancyBoxOptions = (typeof mixed === 'number') ? null : mixed;
-        const _index: number = (typeof mixed === 'number') ? mixed : index;
+    static open(items: string | JQuery | FancyGroupItem | FancyGroupItem[], mixed?: FancyBoxOptions | number, index?: number) {
+        const _options = (typeof mixed === 'number') ? undefined : mixed;
+        const _index = (typeof mixed === 'number') ? mixed : index;
 
         return $.fancybox.open(<FancyBoxGroupItem>items, _options, _index);
     }
