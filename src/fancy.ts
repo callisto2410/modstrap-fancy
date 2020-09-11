@@ -8,6 +8,8 @@ interface FancyGroupItem extends Omit<FancyBoxGroupItem, 'src'> {
 /**
  * Adaptation for jQuery.FancyBox.
  *
+ * @see setup
+ * @see translations
  * @see open
  * @see close
  * @see destroy
@@ -85,7 +87,7 @@ class Fancy {
     /**
      *  Setting up.
      */
-    static setup() {
+    static setup(): void {
         (!this.initiated) && this.initialSetup();
 
         Lexicon.extend(this.translations);
@@ -110,7 +112,7 @@ class Fancy {
      *
      * @private
      */
-    private static initialSetup() {
+    private static initialSetup(): void {
         $.fancybox.defaults.lang = 'lexicon';
         $.fancybox.defaults.animationEffect = 'zoom-in-out';
         $.fancybox.defaults.transitionEffect = 'zoom-in-out';
