@@ -88,25 +88,24 @@ class Fancy {
      *  Setting up.
      */
     static setup(): void {
-        (!this.initiated) && this.initialSetup();
+        if (!this.initiated) this.initialSetup();
+        if (!$.fancybox.defaults.i18n) throw new Error('"$.fancybox.defaults.i18n" is not defined.');
 
         Lexicon.extend(this.translations);
 
-        if ($.fancybox.defaults.i18n) {
-            $.fancybox.defaults.i18n['lexicon'] = {
-                CLOSE: Lexicon.get('fancy_close'),
-                NEXT: Lexicon.get('fancy_next'),
-                PREV: Lexicon.get('fancy_prev'),
-                ERROR: Lexicon.get('fancy_error'),
-                PLAY_START: Lexicon.get('fancy_play_start'),
-                PLAY_STOP: Lexicon.get('fancy_play_stop'),
-                FULL_SCREEN: Lexicon.get('fancy_screen'),
-                THUMBS: Lexicon.get('fancy_thumbs'),
-                DOWNLOAD: Lexicon.get('fancy_download'),
-                SHARE: Lexicon.get('fancy_share'),
-                ZOOM: Lexicon.get('fancy_zoom'),
-            };
-        }
+        $.fancybox.defaults.i18n['lexicon'] = {
+            CLOSE: Lexicon.get('fancy_close'),
+            NEXT: Lexicon.get('fancy_next'),
+            PREV: Lexicon.get('fancy_prev'),
+            ERROR: Lexicon.get('fancy_error'),
+            PLAY_START: Lexicon.get('fancy_play_start'),
+            PLAY_STOP: Lexicon.get('fancy_play_stop'),
+            FULL_SCREEN: Lexicon.get('fancy_screen'),
+            THUMBS: Lexicon.get('fancy_thumbs'),
+            DOWNLOAD: Lexicon.get('fancy_download'),
+            SHARE: Lexicon.get('fancy_share'),
+            ZOOM: Lexicon.get('fancy_zoom'),
+        };
     }
 
     /**
