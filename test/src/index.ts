@@ -8,7 +8,7 @@ const toggle = $('.toggle-lang');
 
 toggle.on('click', () => {
     Lexicon.lang = (Lexicon.lang === 'en') ? 'ru' : 'en';
-    Fancy.setup();
+    Fancy.translate();
 });
 
 /* Inline. */

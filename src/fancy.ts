@@ -85,13 +85,10 @@ class Fancy {
     };
 
     /**
-     *  Setting up.
+     * Performs translation.
      */
-    static setup(): void {
-        if (!this.initiated) this.initialSetup();
+    static translate(): void {
         if (!$.fancybox.defaults.i18n) throw new Error('"$.fancybox.defaults.i18n" is not defined.');
-
-        Lexicon.extend(this.translations);
 
         $.fancybox.defaults.i18n['lexicon'] = {
             CLOSE: Lexicon.get('fancy_close'),
@@ -109,11 +106,16 @@ class Fancy {
     }
 
     /**
-     * Initial setup.
-     *
-     * @private
+     *  Setting up.
      */
-    private static initialSetup(): void {
+    static setup(): void {
+        if (this.initiated) return;
+
+        Lexicon.extend(this.translations);
+
+        delete $.fancybox.defaults.i18n?.en;
+        delete $.fancybox.defaults.i18n?.de;
+
         $.fancybox.defaults.lang = 'lexicon';
         $.fancybox.defaults.animationEffect = 'zoom-in-out';
         $.fancybox.defaults.transitionEffect = 'zoom-in-out';
@@ -127,9 +129,7 @@ class Fancy {
             "close",
         ];
 
-        delete $.fancybox.defaults.i18n?.en;
-        delete $.fancybox.defaults.i18n?.de;
-
+        this.translate();
         this.initiated = true;
     }
 
@@ -177,7 +177,7 @@ class Fancy {
      * @param mixed Options or index.
      * @param index The index of the item in the group.
      */
-    static open(items: string | JQuery | FancyGroupItem | FancyGroupItem[], mixed?: FancyBoxOptions | number, index?: number) {
+    static open(items: string | JQuery | FancyGroupItem | FancyGroupItem[], mixed?: FancyBoxOptions | number, index?: number): FancyBoxInstance {
         const _options = (typeof mixed === 'number') ? undefined : mixed;
         const _index = (typeof mixed === 'number') ? mixed : index;
 
