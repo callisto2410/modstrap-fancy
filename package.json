@@ -14,27 +14,26 @@
     "url": "git+https://github.com/callisto2410/modstrap-fancy.git"
   },
   "scripts": {
-    "build": "webpack --mode production --devtool 'source-map' --config webpack.config.js",
-    "build:watch": "webpack --watch --mode production --devtool 'source-map' --config webpack.config.js"
+    "build": "webpack --mode production --config webpack.config.js",
+    "build:watch": "webpack --watch --mode production --config webpack.config.js"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@fancyapps/fancybox": "^3.5.7",
     "@modstrap/lexicon": "git+https://github.com/callisto2410/modstrap-lexicon.git#v1.0.0",
-    "jquery": "^3.5.1"
-  },
-  "devDependencies": {
     "@types/fancybox": "^3.5.2",
     "@types/jquery": "^3.5.1",
-    "@types/node": "^14.6.4",
-    "autoprefixer": "^9.7.6",
+    "@types/node": "^14.10.1",
+    "autoprefixer": "^9.8.6",
     "awesome-typescript-loader": "^5.2.1",
-    "css-loader": "^3.5.3",
-    "postcss-loader": "^3.0.0",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
+    "css-loader": "^4.3.0",
+    "jquery": "^3.5.1",
+    "postcss-loader": "^4.0.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "typescript": "^4.0.2",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }

@@ -17,20 +17,27 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'test', 'dist'),
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
                 test: /\.s[ac]ss$/i,
                 use: [
                     'style-loader',
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: false
+                        }
+                    },
                     {
                         loader: 'postcss-loader',
                         options: {
-                            ident: 'postcss',
-                            plugins: [
-                                require('autoprefixer'),
-                            ],
+                            postcssOptions: {
+                                plugins: [
+                                    ['autoprefixer'],
+                                ],
+                            },
                         },
                     },
                     'sass-loader',
