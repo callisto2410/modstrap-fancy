@@ -5,6 +5,8 @@ interface FancyGroupItem extends Omit<FancyBoxGroupItem, 'src'> {
     src: string | JQuery<HTMLElement>;
 }
 
+type FancyItems = string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[];
+
 /**
  * Adaptation for jQuery.FancyBox.
  *
@@ -139,7 +141,7 @@ class Fancy {
      *
      * @param items Group items.
      */
-    static open(items: string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[]): FancyBoxInstance;
+    static open(items: FancyItems): FancyBoxInstance;
 
     /**
      * Wrapper for JQuery.FancyBox.open.
@@ -148,7 +150,7 @@ class Fancy {
      * @param items Group items.
      * @param options FancyBox options.
      */
-    static open(items: string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[], options: FancyBoxOptions): FancyBoxInstance;
+    static open(items: FancyItems, options: FancyBoxOptions): FancyBoxInstance;
 
     /**
      * Wrapper for JQuery.FancyBox.open.
@@ -157,7 +159,7 @@ class Fancy {
      * @param items Group items.
      * @param index The index of the item in the group.
      */
-    static open(items: string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[], index: number): FancyBoxInstance;
+    static open(items: FancyItems, index: number): FancyBoxInstance;
 
     /**
      * Wrapper for JQuery.FancyBox.open.
@@ -167,7 +169,7 @@ class Fancy {
      * @param options FancyBox options.
      * @param index The index of the item in the group.
      */
-    static open(items: string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[], options: FancyBoxOptions, index: number): FancyBoxInstance;
+    static open(items: FancyItems, options: FancyBoxOptions, index: number): FancyBoxInstance;
 
     /**
      * Wrapper for JQuery.FancyBox.open.
@@ -177,8 +179,7 @@ class Fancy {
      * @param mixed Options or index.
      * @param index The index of the item in the group.
      */
-    static open(items: string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[],
-                mixed?: FancyBoxOptions | number, index?: number): FancyBoxInstance {
+    static open(items: FancyItems, mixed?: FancyBoxOptions | number, index?: number): FancyBoxInstance {
         const _options = (typeof mixed === 'number') ? undefined : mixed;
         const _index = (typeof mixed === 'number') ? mixed : index;
 
