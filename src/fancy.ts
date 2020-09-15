@@ -219,6 +219,5 @@ Fancy.setup();
 
 export default Fancy;
 export {
-    Fancy,
     FancyGroupItem,
 }
