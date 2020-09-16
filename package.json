@@ -20,7 +20,7 @@
   "dependencies": {},
   "devDependencies": {
     "@fancyapps/fancybox": "^3.5.7",
-    "@modstrap/lexicon": "git+https://github.com/callisto2410/modstrap-lexicon.git#v1.0.0",
+    "@modstrap/lexicon": "git+https://github.com/callisto2410/modstrap-lexicon.git",
     "@types/fancybox": "^3.5.2",
     "@types/jquery": "^3.5.1",
     "@types/node": "^14.10.1",
