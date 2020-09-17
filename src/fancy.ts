@@ -7,6 +7,8 @@ interface FancyGroupItem extends Omit<FancyBoxGroupItem, 'src'> {
 
 type FancyItems = string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[];
 
+type FancyBoxItems = string | JQuery<HTMLElement> | FancyBoxGroupItem | FancyBoxGroupItem[];
+
 /**
  * Adaptation for jQuery.FancyBox.
  *
@@ -183,7 +185,7 @@ class Fancy {
         const _options = (typeof mixed === 'number') ? undefined : mixed;
         const _index = (typeof mixed === 'number') ? mixed : index;
 
-        return $.fancybox.open(<FancyBoxGroupItem>items, _options, _index);
+        return $.fancybox.open(<FancyBoxItems>items, _options, _index);
     }
 
     /**
