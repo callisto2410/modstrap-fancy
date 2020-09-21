@@ -18,6 +18,7 @@ module.exports = {
         path: path.resolve(__dirname, 'test', 'dist'),
     },
     devtool: 'source-map',
+    mode: 'production',
     module: {
         rules: [
             {
