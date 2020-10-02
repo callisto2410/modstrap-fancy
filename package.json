@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Adaptation for jQuery.FancyBox.",
   "main": "src/fancy.ts",
+  "type": "module",
   "author": "Callisto (https://github.com/callisto2410)",
   "license": "MIT",
   "homepage": "https://github.com/callisto2410/modstrap-fancy",
