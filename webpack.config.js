@@ -12,10 +12,10 @@ module.exports = {
             'window.jQuery': 'jquery',
         }),
     ],
-    entry: path.resolve(__dirname, 'test', 'src', 'index.ts'),
+    entry: path.resolve(__dirname, 'demo', 'src', 'index.ts'),
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'test', 'dist'),
+        path: path.resolve(__dirname, 'demo', 'bundle'),
     },
     devtool: 'source-map',
     mode: 'production',
@@ -47,7 +47,12 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                use: "awesome-typescript-loader"
+                use: [{
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: 'tsloader.json'
+                    }
+                }],
             },
         ],
     },
