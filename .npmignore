@@ -1,1 +1,9 @@
-test
+.idea
+src
+demo
+
+tsconfig.json
+tsloader.json
+webpack.config.js
+*.tsbuildinfo
+*.tgz
