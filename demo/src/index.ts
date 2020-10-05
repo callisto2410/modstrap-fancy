@@ -7,7 +7,7 @@ import Fancy, {FancyGroupItem} from "../../src/fancy";
 const toggle = $('.toggle-lang');
 
 toggle.on('click', () => {
-    Lexicon.lang = (Lexicon.lang === 'en') ? 'ru' : 'en';
+    Lexicon.locale = (Lexicon.locale === 'en') ? 'ru' : 'en';
     Fancy.translate();
 });
 
