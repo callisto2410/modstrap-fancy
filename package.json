@@ -4,6 +4,7 @@
   "description": "Adaptation for jQuery.FancyBox.",
   "main": "dist/fancy.js",
   "types": "dist/fancy.d.ts",
+  "style": "dist/fancy.css",
   "author": "Callisto (https://github.com/callisto2410)",
   "license": "MIT",
   "homepage": "https://github.com/callisto2410/modstrap-fancy",
