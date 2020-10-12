@@ -9,6 +9,6 @@
     "outDir": "dist/"
   },
   "files": [
-    "src/fancy.ts"
+    "src/Fancy.ts"
   ]
 }

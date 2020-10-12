@@ -2,9 +2,9 @@
   "name": "@modstrap/fancy",
   "version": "1.0.0",
   "description": "Adaptation for jQuery.FancyBox.",
-  "main": "dist/fancy.js",
-  "types": "dist/fancy.d.ts",
-  "style": "dist/fancy.css",
+  "main": "dist/Fancy.js",
+  "types": "dist/Fancy.d.ts",
+  "style": "dist/Fancy.css",
   "author": "Callisto (https://github.com/callisto2410)",
   "license": "MIT",
   "homepage": "https://github.com/callisto2410/modstrap-fancy",
@@ -18,7 +18,7 @@
   "scripts": {
     "build:demo": "webpack --config webpack.config.js",
     "build:demo:watch": "webpack --watch --config webpack.config.js",
-    "build:dist": "tsc && sass --no-source-map src/fancy.scss dist/fancy.css",
+    "build:dist": "tsc && sass --no-source-map src/Fancy.scss dist/Fancy.css",
     "build:all": "npm run build:dist && npm run build:demo"
   },
   "dependencies": {

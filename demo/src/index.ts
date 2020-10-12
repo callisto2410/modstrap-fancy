@@ -1,7 +1,7 @@
 import "./index.scss";
 
 import Lexicon from "@modstrap/lexicon";
-import Fancy, {FancyGroupItem} from "../../src/fancy";
+import Fancy, {FancyGroupItem} from "../../src/Fancy";
 Fancy.init();
 
 /* Toggle language. */
