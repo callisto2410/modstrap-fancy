@@ -1,5 +1,5 @@
-@import "node_modules/@fancyapps/fancybox/dist/jquery.fancybox";
-@import "../../src/fancy";
+@use "~@fancyapps/fancybox";
+@use "../../src/fancy";
 
 body {
   margin: 0;
