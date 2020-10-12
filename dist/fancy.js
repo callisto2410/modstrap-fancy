@@ -5,7 +5,7 @@ var lexicon_1 = require("@modstrap/lexicon");
 /**
  * Adaptation for jQuery.FancyBox.
  *
- * @see setup
+ * @see init
  * @see translations
  * @see open
  * @see close
@@ -38,7 +38,7 @@ var Fancy = /** @class */ (function () {
     /**
      *  Setting up.
      */
-    Fancy.setup = function () {
+    Fancy.init = function () {
         var _a, _b;
         if (this.initiated)
             return;
@@ -166,5 +166,4 @@ var Fancy = /** @class */ (function () {
     };
     return Fancy;
 }());
-Fancy.setup();
 exports.default = Fancy;

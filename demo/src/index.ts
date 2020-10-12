@@ -2,6 +2,7 @@ import "./index.scss";
 
 import Lexicon from "@modstrap/lexicon";
 import Fancy, {FancyGroupItem} from "../../src/fancy";
+Fancy.init();
 
 /* Toggle language. */
 const toggle = $('.toggle-lang');

@@ -9,7 +9,7 @@ declare type FancyItems = string | JQuery<HTMLElement> | FancyGroupItem | FancyG
 /**
  * Adaptation for jQuery.FancyBox.
  *
- * @see setup
+ * @see init
  * @see translations
  * @see open
  * @see close
@@ -34,7 +34,7 @@ declare class Fancy {
     /**
      *  Setting up.
      */
-    static setup(): void;
+    static init(): void;
     /**
      * Wrapper for JQuery.FancyBox.open.
      * Starts new FancyBox instance.

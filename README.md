@@ -18,6 +18,7 @@ npm i https://github.com/callisto2410/modstrap-fancy.git
 
 ```javascript
 import Fancy from "@modstrap/fancy";
+Fancy.init();
 
 $('.button').on('click', () => {
     Fancy.open({
