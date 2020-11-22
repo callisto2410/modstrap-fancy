@@ -182,10 +182,10 @@ class Fancy {
      * @param index The index of the item in the group.
      */
     static open(items: FancyItems, mixed?: FancyBoxOptions | number, index?: number): FancyBoxInstance {
-        const _options = (typeof mixed === 'number') ? undefined : mixed;
-        const _index = (typeof mixed === 'number') ? mixed : index;
+        const options = (typeof mixed === 'number') ? undefined : mixed;
+        const idx = (typeof mixed === 'number') ? mixed : index;
 
-        return $.fancybox.open(<FancyBoxItems>items, _options, _index);
+        return $.fancybox.open(<FancyBoxItems>items, options, idx);
     }
 
     /**
