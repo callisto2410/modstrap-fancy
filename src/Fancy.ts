@@ -126,11 +126,11 @@ class Fancy {
         $.fancybox.defaults.loop = true;
         $.fancybox.defaults.smallBtn = false;
         $.fancybox.defaults.buttons = [
-            "zoom",
-            "slideShow",
-            "fullScreen",
-            "thumbs",
-            "close",
+            'zoom',
+            'slideShow',
+            'fullScreen',
+            'thumbs',
+            'close',
         ];
 
         this.translate();
