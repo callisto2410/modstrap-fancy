@@ -21,11 +21,6 @@
     "build:dist": "tsc && sass --no-source-map src/Fancy.scss dist/Fancy.css",
     "build:all": "npm run build:dist && npm run build:demo"
   },
-  "dependencies": {
-    "@fancyapps/fancybox": "^3.5.7",
-    "@modstrap/lexicon": "git+https://github.com/callisto2410/modstrap-lexicon.git",
-    "jquery": "^3.5.1"
-  },
   "devDependencies": {
     "@types/fancybox": "^3.5.2",
     "@types/jquery": "^3.5.1",
@@ -40,5 +35,10 @@
     "typescript": "^4.0.2",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@modstrap/lexicon": "git+https://github.com/callisto2410/modstrap-lexicon.git",
+    "jquery": "^3.5.1"
   }
 }
