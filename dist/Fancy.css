@@ -14,7 +14,7 @@
 
 .fancybox-loading {
   border: 4px solid rgba(255, 255, 255, 0.1);
-  border-bottom-color: #2f97d3;
+  border-bottom-color: #8c9eff;
 }
 
 .fancybox-infobar {
@@ -24,10 +24,10 @@
 }
 
 .fancybox-thumbs__list a:before {
-  border-color: #2f97d3;
+  border-color: #8c9eff;
 }
 .fancybox-thumbs__list a.fancybox-thumbs-active::before {
-  border-color: #2f97d3;
+  border-color: #8c9eff;
 }
 
 .fancybox-thumbs {

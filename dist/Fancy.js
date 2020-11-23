@@ -14,6 +14,14 @@ const lexicon_1 = require("@modstrap/lexicon");
  */
 class Fancy {
     /**
+     * Extends default translations.
+     *
+     * @param translations
+     */
+    static extend(translations) {
+        lexicon_1.default.extend(translations);
+    }
+    /**
      * Performs translation.
      */
     static translate() {
@@ -37,12 +45,10 @@ class Fancy {
      *  Setting up.
      */
     static init() {
-        var _a, _b;
         if (this.initiated)
             return;
         lexicon_1.default.extend(this.translations);
-        (_a = $.fancybox.defaults.i18n) === null || _a === void 0 ? true : delete _a.en;
-        (_b = $.fancybox.defaults.i18n) === null || _b === void 0 ? true : delete _b.de;
+        $.fancybox.defaults.i18n = {};
         $.fancybox.defaults.lang = 'lexicon';
         $.fancybox.defaults.animationEffect = 'zoom-in-out';
         $.fancybox.defaults.transitionEffect = 'zoom-in-out';
@@ -67,9 +73,9 @@ class Fancy {
      * @param index The index of the item in the group.
      */
     static open(items, mixed, index) {
-        const _options = (typeof mixed === 'number') ? undefined : mixed;
-        const _index = (typeof mixed === 'number') ? mixed : index;
-        return $.fancybox.open(items, _options, _index);
+        const options = (typeof mixed === 'number') ? undefined : mixed;
+        const idx = (typeof mixed === 'number') ? mixed : index;
+        return $.fancybox.open(items, options, idx);
     }
     /**
      * Wrapper for JQuery.FancyBox.close.
@@ -109,57 +115,46 @@ Fancy.initiated = false;
 Fancy.translations = {
     fancy_close: {
         en: 'Close',
-        de: 'Schließen',
         ru: 'Закрыть',
     },
     fancy_next: {
         en: 'Next',
-        de: 'Weiter',
         ru: 'Вперед',
     },
     fancy_prev: {
         en: 'Previous',
-        de: 'Zurück',
         ru: 'Назад',
     },
     fancy_error: {
         en: 'The requested content cannot be loaded. <br>Please try again later.',
-        de: 'Die angeforderten Daten konnten nicht geladen werden. <br/> Bitte versuchen Sie es später nochmal.',
         ru: 'Не удалось загрузить запрошенный контент. <br>Пожалуйста попробуйте позже.',
     },
     fancy_play_start: {
         en: 'Start slideshow',
-        de: 'Diaschau starten',
         ru: 'Слайдшоу',
     },
     fancy_play_stop: {
         en: 'Pause slideshow',
-        de: 'Diaschau beenden',
         ru: 'Пауза',
     },
     fancy_screen: {
         en: 'Full screen',
-        de: 'Vollbild',
         ru: 'Полный экран',
     },
     fancy_thumbs: {
         en: 'Thumbnails',
-        de: 'Vorschaubilder',
         ru: 'Превью',
     },
     fancy_download: {
         en: 'Download',
-        de: 'Herunterladen',
         ru: 'Загрузка',
     },
     fancy_share: {
         en: 'Share',
-        de: 'Teilen',
         ru: 'Поделиться',
     },
     fancy_zoom: {
         en: 'Zoom',
-        de: 'Maßstab',
         ru: 'Зум',
     },
 };

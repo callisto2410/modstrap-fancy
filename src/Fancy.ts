@@ -119,9 +119,7 @@ class Fancy {
      * @param translations
      */
     static extend(translations: Translations) {
-        for (const key of Object.keys(translations)) {
-            this.translations[key] = {...this.translations[key], ...translations[key]};
-        }
+        Lexicon.extend(translations);
     }
 
     /**

@@ -1,9 +1,44 @@
 /// <reference types="fancybox" />
 /// <reference types="jquery" />
 import "@fancyapps/fancybox";
-import { Translations } from "@modstrap/lexicon";
+import { Translations as LexiconTranslations } from "@modstrap/lexicon";
 interface FancyGroupItem extends Omit<FancyBoxGroupItem, 'src'> {
     src: string | JQuery<HTMLElement>;
+}
+interface Translations extends LexiconTranslations {
+    fancy_close: {
+        [lang: string]: string;
+    };
+    fancy_next: {
+        [lang: string]: string;
+    };
+    fancy_prev: {
+        [lang: string]: string;
+    };
+    fancy_error: {
+        [lang: string]: string;
+    };
+    fancy_play_start: {
+        [lang: string]: string;
+    };
+    fancy_play_stop: {
+        [lang: string]: string;
+    };
+    fancy_screen: {
+        [lang: string]: string;
+    };
+    fancy_thumbs: {
+        [lang: string]: string;
+    };
+    fancy_download: {
+        [lang: string]: string;
+    };
+    fancy_share: {
+        [lang: string]: string;
+    };
+    fancy_zoom: {
+        [lang: string]: string;
+    };
 }
 declare type FancyItems = string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[];
 /**
@@ -26,7 +61,13 @@ declare class Fancy {
     /**
      *  Default translations.
      */
-    static translations: Translations;
+    private static translations;
+    /**
+     * Extends default translations.
+     *
+     * @param translations
+     */
+    static extend(translations: Translations): void;
     /**
      * Performs translation.
      */
