@@ -1,8 +1,44 @@
 import "@fancyapps/fancybox";
-import Lexicon, {Translations} from "@modstrap/lexicon";
+import Lexicon, {Translations as LexiconTranslations} from "@modstrap/lexicon";
 
 interface FancyGroupItem extends Omit<FancyBoxGroupItem, 'src'> {
     src: string | JQuery<HTMLElement>;
+}
+
+interface Translations extends LexiconTranslations {
+    fancy_close: {
+        [lang: string]: string;
+    };
+    fancy_next: {
+        [lang: string]: string;
+    };
+    fancy_prev: {
+        [lang: string]: string;
+    };
+    fancy_error: {
+        [lang: string]: string;
+    };
+    fancy_play_start: {
+        [lang: string]: string;
+    };
+    fancy_play_stop: {
+        [lang: string]: string;
+    };
+    fancy_screen: {
+        [lang: string]: string;
+    };
+    fancy_thumbs: {
+        [lang: string]: string;
+    };
+    fancy_download: {
+        [lang: string]: string;
+    };
+    fancy_share: {
+        [lang: string]: string;
+    };
+    fancy_zoom: {
+        [lang: string]: string;
+    };
 }
 
 type FancyItems = string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[];
@@ -30,63 +66,63 @@ class Fancy {
     /**
      *  Default translations.
      */
-    static translations: Translations = {
+    private static translations: Translations = {
         fancy_close: {
             en: 'Close',
-            de: 'Schließen',
             ru: 'Закрыть',
         },
         fancy_next: {
             en: 'Next',
-            de: 'Weiter',
             ru: 'Вперед',
         },
         fancy_prev: {
             en: 'Previous',
-            de: 'Zurück',
             ru: 'Назад',
         },
         fancy_error: {
             en: 'The requested content cannot be loaded. <br>Please try again later.',
-            de: 'Die angeforderten Daten konnten nicht geladen werden. <br/> Bitte versuchen Sie es später nochmal.',
             ru: 'Не удалось загрузить запрошенный контент. <br>Пожалуйста попробуйте позже.',
         },
         fancy_play_start: {
             en: 'Start slideshow',
-            de: 'Diaschau starten',
             ru: 'Слайдшоу',
         },
         fancy_play_stop: {
             en: 'Pause slideshow',
-            de: 'Diaschau beenden',
             ru: 'Пауза',
         },
         fancy_screen: {
             en: 'Full screen',
-            de: 'Vollbild',
             ru: 'Полный экран',
         },
         fancy_thumbs: {
             en: 'Thumbnails',
-            de: 'Vorschaubilder',
             ru: 'Превью',
         },
         fancy_download: {
             en: 'Download',
-            de: 'Herunterladen',
             ru: 'Загрузка',
         },
         fancy_share: {
             en: 'Share',
-            de: 'Teilen',
             ru: 'Поделиться',
         },
         fancy_zoom: {
             en: 'Zoom',
-            de: 'Maßstab',
             ru: 'Зум',
         },
     };
+
+    /**
+     * Extends default translations.
+     *
+     * @param translations
+     */
+    static extend(translations: Translations) {
+        for (const key of Object.keys(translations)) {
+            this.translations[key] = {...this.translations[key], ...translations[key]};
+        }
+    }
 
     /**
      * Performs translation.
@@ -117,9 +153,7 @@ class Fancy {
 
         Lexicon.extend(this.translations);
 
-        delete $.fancybox.defaults.i18n?.en;
-        delete $.fancybox.defaults.i18n?.de;
-
+        $.fancybox.defaults.i18n = {};
         $.fancybox.defaults.lang = 'lexicon';
         $.fancybox.defaults.animationEffect = 'zoom-in-out';
         $.fancybox.defaults.transitionEffect = 'zoom-in-out';

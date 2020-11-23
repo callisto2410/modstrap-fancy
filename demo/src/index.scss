@@ -145,13 +145,24 @@ article {
   text-align: justify;
 }
 
+/* Controls. */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
 /* Toggle language. */
 .toggle-lang {
   @extend %button;
   @include background(#0097a7);
-  margin: 0 auto;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     margin-bottom: 20px;
   }
 }
