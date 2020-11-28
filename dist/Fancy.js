@@ -5,8 +5,9 @@ const lexicon_1 = require("@modstrap/lexicon");
 /**
  * Adaptation for jQuery.FancyBox.
  *
+ * @see extend
+ * @see translate
  * @see init
- * @see translations
  * @see open
  * @see close
  * @see destroy

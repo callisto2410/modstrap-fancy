@@ -48,8 +48,9 @@ type FancyBoxItems = string | JQuery<HTMLElement> | FancyBoxGroupItem | FancyBox
 /**
  * Adaptation for jQuery.FancyBox.
  *
+ * @see extend
+ * @see translate
  * @see init
- * @see translations
  * @see open
  * @see close
  * @see destroy

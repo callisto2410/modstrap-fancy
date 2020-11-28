@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
-    "@modstrap/lexicon": "git+https://github.com/callisto2410/modstrap-lexicon.git",
+    "@modstrap/lexicon": "git+https://github.com/callisto2410/modstrap-lexicon.git#v1.0.0",
     "jquery": "^3.5.1"
   }
 }
