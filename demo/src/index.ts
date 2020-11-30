@@ -3,6 +3,9 @@ import "./index.scss";
 import Lexicon from "@modstrap/lexicon";
 import Fancy, {FancyGroupItem} from "../../src/Fancy";
 
+Lexicon.locale = document.querySelector('html')?.getAttribute('lang') ?? 'en';
+Fancy.init();
+
 Fancy.extend({
     fancy_close: {
         de: 'Schließen',
@@ -38,8 +41,6 @@ Fancy.extend({
         de: 'Maßstab',
     }
 });
-
-Fancy.init();
 
 /* Toggle language. */
 const toggle = $('.toggle-lang');
