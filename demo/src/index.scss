@@ -28,6 +28,10 @@ article {
   @media (max-width: 1024px) {
     padding-bottom: 10px;
   }
+
+  @media (max-width: 960px) {
+    padding: 10px;
+  }
 }
 
 %grid {
@@ -36,7 +40,7 @@ article {
   justify-content: space-between;
   flex-wrap: wrap;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 960px) {
     justify-content: center;
 
     .item,
