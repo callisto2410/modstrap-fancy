@@ -132,7 +132,7 @@ Fancy.translations = {
     },
     fancy_play_start: {
         en: 'Start slideshow',
-        ru: 'Слайдшоу',
+        ru: 'Слайд-шоу',
     },
     fancy_play_stop: {
         en: 'Pause slideshow',
