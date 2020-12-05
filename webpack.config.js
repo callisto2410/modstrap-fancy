@@ -1,5 +1,5 @@
-const path = require('path');
-const webpack = require('webpack');
+const Path = require('path');
+const Webpack = require('webpack');
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
@@ -20,16 +20,16 @@ module.exports = {
         ],
     },
     plugins: [
-        new webpack.ProvidePlugin({
+        new Webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
         }),
     ],
-    entry: path.resolve(__dirname, 'demo', 'src', 'index.ts'),
+    entry: Path.resolve(__dirname, 'demo', 'src', 'index.ts'),
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'demo', 'dist'),
+        path: Path.resolve(__dirname, 'demo', 'dist'),
     },
     devtool: 'source-map',
     mode: 'production',
