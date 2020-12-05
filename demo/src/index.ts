@@ -3,7 +3,6 @@ import "./index.scss";
 import Lexicon from "@modstrap/lexicon";
 import Fancy, {FancyGroupItem} from "../../src/Fancy";
 
-Lexicon.locale = document.querySelector('html')?.getAttribute('lang') ?? 'en';
 Fancy.init();
 
 Fancy.extend({
