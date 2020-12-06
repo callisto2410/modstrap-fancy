@@ -21,6 +21,7 @@ class Fancy {
      */
     static extend(translations) {
         lexicon_1.default.extend(translations);
+        this.translate();
     }
     /**
      * Performs translation.
