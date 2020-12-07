@@ -21,22 +21,22 @@ Fancy.extend({
     fancy_play_start: {
         de: 'Diaschau starten',
     },
-    fancy_play_stop:{
+    fancy_play_stop: {
         de: 'Diaschau beenden',
     },
     fancy_screen: {
         de: 'Vollbild',
     },
-    fancy_thumbs:{
+    fancy_thumbs: {
         de: 'Vorschaubilder',
     },
-    fancy_download:{
+    fancy_download: {
         de: 'Herunterladen',
     },
-    fancy_share:{
+    fancy_share: {
         de: 'Teilen',
     },
-    fancy_zoom:{
+    fancy_zoom: {
         de: 'Maßstab',
     }
 });
