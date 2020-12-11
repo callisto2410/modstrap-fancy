@@ -13,6 +13,7 @@ body * {
 article {
   color: #444444;
   width: 100vw;
+  min-width: 320px;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -25,12 +26,8 @@ article {
   padding: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 
-  @media (max-width: 1024px) {
-    padding-bottom: 10px;
-  }
-
   @media (max-width: 960px) {
-    padding: 10px;
+    padding: 10px 10px 5px;
   }
 }
 
@@ -39,20 +36,12 @@ article {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-
-  @media (max-width: 960px) {
-    justify-content: center;
-
-    .item,
-    .button {
-      margin: 0 5px 10px;
-    }
-  }
 }
 
 %button {
-  width: 220px;
+  width: 23%;
   height: 50px;
+  margin: 0 0 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,6 +53,10 @@ article {
 
   &:active {
     transform: translateY(2px);
+  }
+
+  @media (max-width: 768px) {
+    width: 49%;
   }
 }
 
@@ -78,11 +71,10 @@ article {
 /* Images. */
 .images {
   @extend %grid;
-  margin: 0 0 5px;
+  margin: 0 0 20px;
 
   .item {
-    width: 220px;
-    height: 150px;
+    width: 24%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,6 +82,15 @@ article {
 
     img {
       max-width: 100%;
+    }
+  }
+
+  @media (max-width: 425px) {
+    margin: 0 0 15px;
+
+    .item {
+      width: 49%;
+      margin: 0 0 5px;
     }
   }
 }
@@ -104,10 +105,6 @@ article {
     @include background(#d32f2f);
     text-decoration: none;
   }
-
-  @media (max-width: 1024px) {
-    margin: 0 0 5px;
-  }
 }
 
 /* IFrame. */
@@ -120,16 +117,12 @@ article {
     @include background(#0097a7);
     text-decoration: none;
   }
-
-  @media (max-width: 1024px) {
-    margin: 0 0 5px;
-  }
 }
 
 /* Inline. */
 .inline {
   @extend %grid;
-  margin: 0 0 5px;
+  margin: 0 0 20px;
 
   .button {
     @extend %button;
@@ -138,10 +131,6 @@ article {
 
   .item {
     display: none;
-  }
-
-  @media (max-width: 1024px) {
-    margin: 0 0 5px;
   }
 }
 
@@ -170,7 +159,7 @@ article {
   @extend %button;
   @include background(#0097a7);
 
-  @media (max-width: 768px) {
-    margin-bottom: 20px;
+  @media (max-width: 425px) {
+    margin: 0 0 10px;
   }
 }

@@ -1,7 +1,7 @@
 /// <reference types="fancybox" />
 /// <reference types="jquery" />
-import "@fancyapps/fancybox";
-import { Translations as LexiconTranslations } from "@modstrap/lexicon";
+import { Translations as LexiconTranslations } from '@modstrap/lexicon';
+import '@fancyapps/fancybox';
 interface FancyGroupItem extends Omit<FancyBoxGroupItem, 'src'> {
     src: string | JQuery<HTMLElement>;
 }

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require("@fancyapps/fancybox");
 const lexicon_1 = require("@modstrap/lexicon");
+require("@fancyapps/fancybox");
 /**
  * Adaptation for jQuery.FancyBox.
  *
