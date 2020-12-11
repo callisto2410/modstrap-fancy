@@ -1,7 +1,7 @@
-import "./index.scss";
+import './index.scss';
 
-import Lexicon from "@modstrap/lexicon";
-import Fancy, {FancyGroupItem} from "../../src/Fancy";
+import Lexicon from '@modstrap/lexicon';
+import Fancy, {FancyGroupItem} from '../../src/Fancy';
 
 Fancy.extendTranslations({
     fancy_close: {

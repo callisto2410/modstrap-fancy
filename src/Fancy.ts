@@ -1,5 +1,5 @@
-import "@fancyapps/fancybox";
-import Lexicon, {Translations as LexiconTranslations} from "@modstrap/lexicon";
+import Lexicon, {Translations as LexiconTranslations} from '@modstrap/lexicon';
+import '@fancyapps/fancybox';
 
 interface FancyGroupItem extends Omit<FancyBoxGroupItem, 'src'> {
     src: string | JQuery<HTMLElement>;
