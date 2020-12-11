@@ -121,7 +121,6 @@ class Fancy {
      */
     static extend(translations: Translations) {
         Lexicon.extend(translations);
-        this.translate();
     }
 
     /**
