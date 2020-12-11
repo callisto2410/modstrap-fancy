@@ -160,4 +160,5 @@ Fancy.translations = {
         ru: 'Зум',
     },
 };
+Fancy.init();
 exports.default = Fancy;
