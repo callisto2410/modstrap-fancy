@@ -5,7 +5,7 @@ const lexicon_1 = require("@modstrap/lexicon");
 /**
  * Adaptation for jQuery.FancyBox.
  *
- * @see extend
+ * @see extendTranslations
  * @see translate
  * @see init
  * @see open
@@ -19,9 +19,8 @@ class Fancy {
      *
      * @param translations
      */
-    static extend(translations) {
+    static extendTranslations(translations) {
         lexicon_1.default.extend(translations);
-        this.translate();
     }
     /**
      * Performs translation.
@@ -45,6 +44,7 @@ class Fancy {
     }
     /**
      *  Setting up.
+     *  Runs by default when importing a module.
      */
     static init() {
         if (this.initiated)

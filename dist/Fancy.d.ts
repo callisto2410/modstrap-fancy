@@ -44,7 +44,7 @@ declare type FancyItems = string | JQuery<HTMLElement> | FancyGroupItem | FancyG
 /**
  * Adaptation for jQuery.FancyBox.
  *
- * @see extend
+ * @see extendTranslations
  * @see translate
  * @see init
  * @see open
@@ -68,13 +68,14 @@ declare class Fancy {
      *
      * @param translations
      */
-    static extend(translations: Translations): void;
+    static extendTranslations(translations: Translations): void;
     /**
      * Performs translation.
      */
     static translate(): void;
     /**
      *  Setting up.
+     *  Runs by default when importing a module.
      */
     static init(): void;
     /**
