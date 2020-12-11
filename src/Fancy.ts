@@ -48,7 +48,7 @@ type FancyBoxItems = string | JQuery<HTMLElement> | FancyBoxGroupItem | FancyBox
 /**
  * Adaptation for jQuery.FancyBox.
  *
- * @see extend
+ * @see extendTranslations
  * @see translate
  * @see init
  * @see open
@@ -119,7 +119,7 @@ class Fancy {
      *
      * @param translations
      */
-    static extend(translations: Translations) {
+    static extendTranslations(translations: Translations) {
         Lexicon.extend(translations);
     }
 
@@ -146,6 +146,7 @@ class Fancy {
 
     /**
      *  Setting up.
+     *  Runs by default when importing a module.
      */
     static init(): void {
         if (this.initiated) return;

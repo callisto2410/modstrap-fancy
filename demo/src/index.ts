@@ -3,7 +3,7 @@ import "./index.scss";
 import Lexicon from "@modstrap/lexicon";
 import Fancy, {FancyGroupItem} from "../../src/Fancy";
 
-Fancy.extend({
+Fancy.extendTranslations({
     fancy_close: {
         de: 'Schließen',
     },
