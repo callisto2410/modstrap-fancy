@@ -131,4 +131,4 @@ declare class Fancy {
     static getInstance(command?: string | (() => void)): FancyBoxInstance;
 }
 export default Fancy;
-export { FancyGroupItem, };
+export { FancyGroupItem };

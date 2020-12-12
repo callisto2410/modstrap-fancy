@@ -255,5 +255,5 @@ Fancy.init();
 
 export default Fancy;
 export {
-    FancyGroupItem,
+    FancyGroupItem
 }
