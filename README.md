@@ -16,7 +16,13 @@ npm i https://github.com/callisto2410/modstrap-fancy.git
 
 ## Usage
 
-```javascript
+SCSS:
+```scss
+@use '~@modstrap/fancy';
+```
+
+TypeScript:
+```ts
 import Fancy from "@modstrap/fancy";
 
 $('.button').on('click', () => {
