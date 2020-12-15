@@ -1,6 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const lexicon_1 = require("@modstrap/lexicon");
+const lexicon_1 = __importDefault(require("@modstrap/lexicon"));
 require("@fancyapps/fancybox");
 /**
  * Adaptation for jQuery.FancyBox.
