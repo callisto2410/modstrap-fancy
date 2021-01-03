@@ -75,7 +75,7 @@ declare class Fancy {
     static translate(): void;
     /**
      *  Setting up.
-     *  Runs by default when importing a module.
+     *  Called by default when importing a module, no manual call required.
      */
     static init(): void;
     /**
