@@ -1,4 +1,4 @@
-@use '../../src/Fancy';
+@use "../../src/Fancy";
 
 body {
   margin: 0;
@@ -44,7 +44,7 @@ article {
   display: flex;
   align-items: center;
   justify-content: center;
-  font: 14px 'Arial';
+  font: 14px "Arial";
   color: #efefee;
   text-transform: uppercase;
   user-select: none;
@@ -137,7 +137,7 @@ article {
   max-width: 100%;
   width: 425px;
   padding: 30px;
-  font: 14px 'Arial';
+  font: 14px "Arial";
   text-align: justify;
 }
 

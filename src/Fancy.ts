@@ -1,259 +1,255 @@
-import Lexicon, {Translations as LexiconTranslations} from '@modstrap/lexicon';
-import '@fancyapps/fancybox';
+import Lexicon, {LexiconTranslations} from "@modstrap/lexicon";
+import "@fancyapps/fancybox";
 
-interface FancyGroupItem extends Omit<FancyBoxGroupItem, 'src'> {
-    src: string | JQuery<HTMLElement>;
-}
-
-interface Translations extends LexiconTranslations {
+export interface FancyTranslations extends LexiconTranslations {
     fancy_close: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_next: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_prev: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_error: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_play_start: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_play_stop: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_screen: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_thumbs: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_download: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_share: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
     fancy_zoom: {
-        [lang: string]: string;
-    };
+        [locale: string]: string;
+    }
 }
 
-type FancyItems = string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[];
+export type FancyGroupItem = FancyBoxGroupItem;
 
-type FancyBoxItems = string | JQuery<HTMLElement> | FancyBoxGroupItem | FancyBoxGroupItem[];
+export type FancyItem = string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[];
+
+export type FancyInstance = FancyBoxInstance;
+
+export type FancyOptions = FancyBoxOptions;
+
 
 /**
- * Adaptation for jQuery.FancyBox.
- *
- * @see extendTranslations
- * @see translate
- * @see init
- * @see open
- * @see close
- * @see destroy
- * @see getInstance
+ * Helper class for initial fancybox setup.
  */
-class Fancy {
+class FancyTuning {
     /**
      * Reconfiguration prevention indicator.
-     *
-     * @private
      */
-    private static initiated: boolean = false;
+    private static isTuned: boolean = false;
 
     /**
      *  Default translations.
      */
-    private static translations: Translations = {
+    private static translations: FancyTranslations = {
         fancy_close: {
-            en: 'Close',
-            ru: 'Закрыть',
+            en: "Close",
+            ru: "Закрыть",
         },
         fancy_next: {
-            en: 'Next',
-            ru: 'Вперед',
+            en: "Next",
+            ru: "Вперед",
         },
         fancy_prev: {
-            en: 'Previous',
-            ru: 'Назад',
+            en: "Previous",
+            ru: "Назад",
         },
         fancy_error: {
-            en: 'The requested content cannot be loaded. <br>Please try again later.',
-            ru: 'Не удалось загрузить запрошенный контент. <br>Пожалуйста попробуйте позже.',
+            en: "The requested content cannot be loaded. <br>Please try again later.",
+            ru: "Не удалось загрузить запрошенный контент. <br>Пожалуйста попробуйте позже.",
         },
         fancy_play_start: {
-            en: 'Start slideshow',
-            ru: 'Слайд-шоу',
+            en: "Start slideshow",
+            ru: "Слайд-шоу",
         },
         fancy_play_stop: {
-            en: 'Pause slideshow',
-            ru: 'Пауза',
+            en: "Pause slideshow",
+            ru: "Пауза",
         },
         fancy_screen: {
-            en: 'Full screen',
-            ru: 'Полный экран',
+            en: "Full screen",
+            ru: "Полный экран",
         },
         fancy_thumbs: {
-            en: 'Thumbnails',
-            ru: 'Превью',
+            en: "Thumbnails",
+            ru: "Превью",
         },
         fancy_download: {
-            en: 'Download',
-            ru: 'Загрузка',
+            en: "Download",
+            ru: "Загрузка",
         },
         fancy_share: {
-            en: 'Share',
-            ru: 'Поделиться',
+            en: "Share",
+            ru: "Поделиться",
         },
         fancy_zoom: {
-            en: 'Zoom',
-            ru: 'Зум',
+            en: "Zoom",
+            ru: "Зум",
         },
     };
 
     /**
-     * Extends default translations.
-     *
-     * @param translations
+     * Initialization.
      */
-    static extendTranslations(translations: Translations) {
-        Lexicon.extend(translations);
+    public static init(): void {
+        if (this.isTuned) return;
+
+        $.fancybox.defaults.i18n = {};
+        $.fancybox.defaults.lang = "lexicon";
+        $.fancybox.defaults.animationEffect = "zoom-in-out";
+        $.fancybox.defaults.transitionEffect = "zoom-in-out";
+        $.fancybox.defaults.loop = true;
+        $.fancybox.defaults.smallBtn = false;
+        $.fancybox.defaults.buttons = [
+            "zoom",
+            "slideShow",
+            "fullScreen",
+            "thumbs",
+            "close",
+        ];
+
+        Lexicon.extend(this.translations);
+        this.translate();
+
+        this.isTuned = true;
     }
 
     /**
      * Performs translation.
      */
-    static translate(): void {
-        if (!$.fancybox.defaults.i18n) throw new Error('"$.fancybox.defaults.i18n" is not defined.');
+    public static translate(): void {
+        if (!$.fancybox.defaults.i18n) throw new Error("'$.fancybox.defaults.i18n' is not defined.");
 
-        $.fancybox.defaults.i18n['lexicon'] = {
-            CLOSE: Lexicon.get('fancy_close'),
-            NEXT: Lexicon.get('fancy_next'),
-            PREV: Lexicon.get('fancy_prev'),
-            ERROR: Lexicon.get('fancy_error'),
-            PLAY_START: Lexicon.get('fancy_play_start'),
-            PLAY_STOP: Lexicon.get('fancy_play_stop'),
-            FULL_SCREEN: Lexicon.get('fancy_screen'),
-            THUMBS: Lexicon.get('fancy_thumbs'),
-            DOWNLOAD: Lexicon.get('fancy_download'),
-            SHARE: Lexicon.get('fancy_share'),
-            ZOOM: Lexicon.get('fancy_zoom'),
+        $.fancybox.defaults.i18n["lexicon"] = {
+            CLOSE: Lexicon.get("fancy_close"),
+            NEXT: Lexicon.get("fancy_next"),
+            PREV: Lexicon.get("fancy_prev"),
+            ERROR: Lexicon.get("fancy_error"),
+            PLAY_START: Lexicon.get("fancy_play_start"),
+            PLAY_STOP: Lexicon.get("fancy_play_stop"),
+            FULL_SCREEN: Lexicon.get("fancy_screen"),
+            THUMBS: Lexicon.get("fancy_thumbs"),
+            DOWNLOAD: Lexicon.get("fancy_download"),
+            SHARE: Lexicon.get("fancy_share"),
+            ZOOM: Lexicon.get("fancy_zoom"),
         };
     }
+}
 
+FancyTuning.init();
+
+/**
+ * Adaptation for jQuery.FancyBox.
+ *
+ * @see translate
+ * @see open
+ * @see close
+ * @see destroy
+ * @see getInstance
+ */
+export class Fancy {
     /**
-     *  Setting up.
-     *  Called by default when importing a module, no manual call required.
+     * Performs translation.
      */
-    static init(): void {
-        if (this.initiated) return;
-
-        Lexicon.extend(this.translations);
-
-        $.fancybox.defaults.i18n = {};
-        $.fancybox.defaults.lang = 'lexicon';
-        $.fancybox.defaults.animationEffect = 'zoom-in-out';
-        $.fancybox.defaults.transitionEffect = 'zoom-in-out';
-        $.fancybox.defaults.loop = true;
-        $.fancybox.defaults.smallBtn = false;
-        $.fancybox.defaults.buttons = [
-            'zoom',
-            'slideShow',
-            'fullScreen',
-            'thumbs',
-            'close',
-        ];
-
-        this.translate();
-        this.initiated = true;
+    public static translate(): void {
+        FancyTuning.translate();
     }
 
     /**
      * Wrapper for JQuery.FancyBox.open.
-     * Starts new FancyBox instance.
+     * Creates a new instance.
      *
      * @param items Group items.
      */
-    static open(items: FancyItems): FancyBoxInstance;
+    public static open(items: FancyItem): FancyInstance;
 
     /**
      * Wrapper for JQuery.FancyBox.open.
-     * Starts new FancyBox instance.
+     * Creates a new instance.
      *
      * @param items Group items.
      * @param options FancyBox options.
      */
-    static open(items: FancyItems, options: FancyBoxOptions): FancyBoxInstance;
+    public static open(items: FancyItem, options: FancyOptions | undefined): FancyInstance;
 
     /**
      * Wrapper for JQuery.FancyBox.open.
-     * Starts new FancyBox instance.
-     *
-     * @param items Group items.
-     * @param index The index of the item in the group.
-     */
-    static open(items: FancyItems, index: number): FancyBoxInstance;
-
-    /**
-     * Wrapper for JQuery.FancyBox.open.
-     * Starts new FancyBox instance.
+     * Creates a new instance.
      *
      * @param items Group items.
      * @param options FancyBox options.
      * @param index The index of the item in the group.
      */
-    static open(items: FancyItems, options: FancyBoxOptions, index: number): FancyBoxInstance;
+    public static open(items: FancyItem, options: FancyOptions | undefined, index: number): FancyInstance;
 
     /**
      * Wrapper for JQuery.FancyBox.open.
-     * Starts new FancyBox instance.
+     * Creates a new instance.
      *
      * @param items Group items.
-     * @param mixed Options or index.
+     * @param options Options.
      * @param index The index of the item in the group.
      */
-    static open(items: FancyItems, mixed?: FancyBoxOptions | number, index?: number): FancyBoxInstance {
-        const options = (typeof mixed === 'number') ? undefined : mixed;
-        const idx = (typeof mixed === 'number') ? mixed : index;
-
-        return $.fancybox.open(<FancyBoxItems>items, options, idx);
+    public static open(items: FancyItem, options?: FancyOptions, index?: number): FancyInstance {
+        return $.fancybox.open(items, options, index);
     }
 
     /**
      * Wrapper for JQuery.FancyBox.close.
-     * Close instance.
+     * Closes an existing instance.
+     */
+    public static close(): void;
+
+    /**
+     * Wrapper for JQuery.FancyBox.close.
+     * Closes an existing instance.
      *
      * @param all Close all instances?
      */
-    static close(all?: boolean): void {
+    public static close(all?: boolean): void {
         $.fancybox.close(all);
     }
 
     /**
      * Wrapper for JQuery.FancyBox.destroy.
-     * Close all instances and unbind all events.
+     * Closes all instances and decouples all events.
      */
-    static destroy(): void {
+    public static destroy(): void {
         $.fancybox.destroy();
     }
 
     /**
      * Wrapper for JQuery.FancyBox.getInstance.
-     * Get reference to currently active FancyBox instance.
+     * Returns the current instance.
+     */
+    public static getInstance(): FancyInstance;
+
+    /**
+     * Wrapper for JQuery.FancyBox.getInstance.
+     * Returns the current instance.
      *
      * @param command Command for the current instance.
      */
-    static getInstance(command?: string | (() => void)): FancyBoxInstance {
+    public static getInstance(command?: string | (() => void)): FancyInstance {
         return $.fancybox.getInstance(command);
     }
 }
 
-Fancy.init();
-
 export default Fancy;
-export {
-    FancyGroupItem
-}

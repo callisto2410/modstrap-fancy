@@ -1,72 +1,71 @@
-import './index.scss';
+import "./index.scss";
 
-import Lexicon from '@modstrap/lexicon';
-import Fancy, {FancyGroupItem} from '../../src/Fancy';
+import Lexicon from "@modstrap/lexicon";
+import Fancy, {FancyGroupItem} from "../../src/Fancy";
 
-Fancy.extendTranslations({
+Lexicon.extend({
     fancy_close: {
-        de: 'Schließen',
+        de: "Schließen",
     },
     fancy_next: {
-        de: 'Weiter',
+        de: "Weiter",
     },
     fancy_prev: {
-        de: 'Zurück',
+        de: "Zurück",
     },
     fancy_error: {
-        de: 'Die angeforderten Daten konnten nicht geladen werden. <br>Bitte versuchen Sie es später nochmal.',
+        de: "Die angeforderten Daten konnten nicht geladen werden. <br>Bitte versuchen Sie es später nochmal.",
     },
     fancy_play_start: {
-        de: 'Diaschau starten',
+        de: "Diaschau starten",
     },
     fancy_play_stop: {
-        de: 'Diaschau beenden',
+        de: "Diaschau beenden",
     },
     fancy_screen: {
-        de: 'Vollbild',
+        de: "Vollbild",
     },
     fancy_thumbs: {
-        de: 'Vorschaubilder',
+        de: "Vorschaubilder",
     },
     fancy_download: {
-        de: 'Herunterladen',
+        de: "Herunterladen",
     },
     fancy_share: {
-        de: 'Teilen',
+        de: "Teilen",
     },
     fancy_zoom: {
-        de: 'Maßstab',
+        de: "Maßstab",
     }
 });
 
-/* Toggle language. */
-const toggle = $('.toggle-lang');
+const buttons = Array.prototype.slice.call(document.querySelectorAll(".inline .button")) as HTMLElement[];
+const group: FancyGroupItem[] = [];
 
-toggle.on('click', (event) => {
-    Lexicon.locale = $(event.currentTarget).attr('data-value') ?? 'en';
-    Fancy.translate();
-});
+for (const button of buttons) {
+    const src = button.getAttribute("data-value") ?? "";
+    const index = buttons.indexOf(button);
 
-/* Inline. */
-const buttons = $('.inline .button');
+    group[index] = {
+        src: src,
+        type: "inline",
+    };
+}
 
-buttons.on('click', event => {
-    const current = $(event.currentTarget);
-    const index = buttons.index(current);
-    const group: FancyGroupItem[] = [];
-    const inline = $('[data-group="inline"]');
+document.body.addEventListener("click", (event: Event) => {
+    const target = event.target as HTMLElement;
+    const parent = target.parentElement as HTMLElement;
 
-    inline.each((index, element) => {
-        const elm = $(element);
+    /* Inline. */
+    if (parent.classList.contains("inline")) {
+        const index = buttons.indexOf(target);
 
-        group[index] = {
-            src: elm,
-            type: 'html',
-            opts: {
-                caption: elm.attr('data-caption')
-            }
-        };
-    });
+        Fancy.open(group, undefined, index);
+    }
 
-    Fancy.open(group, index);
+    /* Toggle language. */
+    if (parent.classList.contains("controls")) {
+        Lexicon.locale = target.getAttribute("data-value") ?? "en";
+        Fancy.translate();
+    }
 });

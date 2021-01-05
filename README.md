@@ -18,19 +18,19 @@ npm i https://github.com/callisto2410/modstrap-fancy.git
 
 SCSS:
 ```scss
-@use '~@modstrap/fancy';
+@use "~@modstrap/fancy";
 ```
 
 TypeScript:
 ```ts
 import Fancy from "@modstrap/fancy";
 
-$('.button').on('click', () => {
+$(".button").on("click", () => {
     Fancy.open({
-        src: $('.content'),
-        type: 'html',
+        src: $(".content"),
+        type: "html",
         opts: {
-            caption: 'Content description...'
+            caption: "Content description..."
         }
     });
 });
