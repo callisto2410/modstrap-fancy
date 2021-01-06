@@ -45,18 +45,21 @@ export type FancyInstance = FancyBoxInstance;
 
 export type FancyOptions = FancyBoxOptions;
 
-
 /**
  * Helper class for initial fancybox setup.
  */
 class FancyTuning {
     /**
      * Reconfiguration prevention indicator.
+     *
+     * @private
      */
     private static isTuned: boolean = false;
 
     /**
-     *  Default translations.
+     * Default translations.
+     *
+     * @private
      */
     private static translations: FancyTranslations = {
         fancy_close: {

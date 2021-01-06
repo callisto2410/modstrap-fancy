@@ -56,10 +56,14 @@ class FancyTuning {
 }
 /**
  * Reconfiguration prevention indicator.
+ *
+ * @private
  */
 FancyTuning.isTuned = false;
 /**
- *  Default translations.
+ * Default translations.
+ *
+ * @private
  */
 FancyTuning.translations = {
     fancy_close: {
