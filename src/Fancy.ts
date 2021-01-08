@@ -46,9 +46,9 @@ export type FancyInstance = FancyBoxInstance;
 export type FancyOptions = FancyBoxOptions;
 
 /**
- * Helper class for initial fancybox setup.
+ * Helper class for initial jQuery.FancyBox setup.
  */
-class FancyTuning {
+class Init {
     /**
      * Reconfiguration prevention indicator.
      *
@@ -109,9 +109,9 @@ class FancyTuning {
     };
 
     /**
-     * Initialization.
+     * Basic setup.
      */
-    public static init(): void {
+    public static main(): void {
         if (this.isTuned) return;
 
         $.fancybox.defaults.i18n = {};
@@ -156,7 +156,7 @@ class FancyTuning {
     }
 }
 
-FancyTuning.init();
+Init.main();
 
 /**
  * Adaptation for jQuery.FancyBox.
@@ -172,7 +172,7 @@ export class Fancy {
      * Performs translation.
      */
     public static translate(): void {
-        FancyTuning.translate();
+        Init.translate();
     }
 
     /**

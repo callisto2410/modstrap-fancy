@@ -7,13 +7,13 @@ exports.Fancy = void 0;
 const lexicon_1 = __importDefault(require("@modstrap/lexicon"));
 require("@fancyapps/fancybox");
 /**
- * Helper class for initial fancybox setup.
+ * Helper class for initial jQuery.FancyBox setup.
  */
-class FancyTuning {
+class Init {
     /**
-     * Initialization.
+     * Basic setup.
      */
-    static init() {
+    static main() {
         if (this.isTuned)
             return;
         $.fancybox.defaults.i18n = {};
@@ -59,13 +59,13 @@ class FancyTuning {
  *
  * @private
  */
-FancyTuning.isTuned = false;
+Init.isTuned = false;
 /**
  * Default translations.
  *
  * @private
  */
-FancyTuning.translations = {
+Init.translations = {
     fancy_close: {
         en: "Close",
         ru: "Закрыть",
@@ -111,7 +111,7 @@ FancyTuning.translations = {
         ru: "Зум",
     },
 };
-FancyTuning.init();
+Init.main();
 /**
  * Adaptation for jQuery.FancyBox.
  *
@@ -126,7 +126,7 @@ class Fancy {
      * Performs translation.
      */
     static translate() {
-        FancyTuning.translate();
+        Init.translate();
     }
     /**
      * Wrapper for JQuery.FancyBox.open.
