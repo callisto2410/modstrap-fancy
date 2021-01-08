@@ -14,7 +14,7 @@ class Init {
      * Basic setup.
      */
     static main() {
-        if (this.isTuned)
+        if (this.initiated)
             return;
         $.fancybox.defaults.i18n = {};
         $.fancybox.defaults.lang = "lexicon";
@@ -31,7 +31,7 @@ class Init {
         ];
         lexicon_1.default.extend(this.translations);
         this.translate();
-        this.isTuned = true;
+        this.initiated = true;
     }
     /**
      * Performs translation.
@@ -59,7 +59,7 @@ class Init {
  *
  * @private
  */
-Init.isTuned = false;
+Init.initiated = false;
 /**
  * Default translations.
  *
