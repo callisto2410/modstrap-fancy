@@ -906,3 +906,9 @@ body.compensate-for-scrollbar {
 .fancybox-thumbs {
   background: rgba(30, 30, 30, 0.8);
 }
+
+@media (max-width: 425px) {
+  .fancybox-button.fancybox-button--thumbs {
+    display: none;
+  }
+}

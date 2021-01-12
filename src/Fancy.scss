@@ -42,3 +42,11 @@
 .fancybox-thumbs {
   background: rgba(#1e1e1e, .8);
 }
+
+.fancybox-button {
+  @media (max-width: 425px) {
+    &.fancybox-button--thumbs {
+      display: none;
+    }
+  }
+}
