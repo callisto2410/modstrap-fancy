@@ -3,12 +3,14 @@ const Webpack = require("webpack");
 const TerserPlugin = require("terser-webpack-plugin");
 
 const WP = {
+    mode: "production",
+    devtool: "source-map",
     performance: {
         hints: false,
     },
     entry: Path.resolve(__dirname, "demo", "src", "index.ts"),
     output: {
-        filename: "bundle.js",
+        filename: "[name].js",
         path: Path.resolve(__dirname, "demo", "dist"),
     },
     cache: {
@@ -38,6 +40,15 @@ WP.optimization = {
             parallel: true,
         }),
     ],
+    splitChunks: {
+        cacheGroups: {
+            vendor: {
+                test: /[\\/]node_modules[\\/]/,
+                name: 'vendor',
+                chunks: 'all',
+            },
+        },
+    },
 };
 
 WP.module = {
