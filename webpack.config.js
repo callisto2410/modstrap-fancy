@@ -1,21 +1,10 @@
 const Path = require("path");
 const Webpack = require("webpack");
-// noinspection NpmUsedModulesInstalled
 const TerserPlugin = require("terser-webpack-plugin");
 
 const WP = {
-    mode: "production",
-    devtool: "source-map",
     performance: {
         hints: false,
-    },
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserPlugin({
-                extractComments: false,
-            }),
-        ],
     },
     entry: Path.resolve(__dirname, "demo", "src", "index.ts"),
     output: {
@@ -28,7 +17,6 @@ const WP = {
     },
 };
 
-// noinspection JSUnresolvedFunction
 WP.plugins = [
     new Webpack.ProvidePlugin({
         $: "jquery",
@@ -37,10 +25,25 @@ WP.plugins = [
     }),
 ];
 
+WP.optimization = {
+    minimize: true,
+    minimizer: [
+        new TerserPlugin({
+            terserOptions: {
+                format: {
+                    comments: false,
+                },
+            },
+            extractComments: false,
+            parallel: true,
+        }),
+    ],
+};
+
 WP.module = {
     rules: [
         {
-            test: /\.s[ac]ss$/i,
+            test: /\.scss$/,
             use: [
                 "style-loader",
                 {
@@ -54,9 +57,12 @@ WP.module = {
                     loader: "postcss-loader",
                     options: {
                         postcssOptions: {
-                            plugins: [
-                                ["autoprefixer"],
-                            ],
+                            plugins: {
+                                autoprefixer: {},
+                                cssnano: {
+                                    preset: ["default", {discardComments: {removeAll: true}}]
+                                },
+                            },
                         },
                     },
                 },
@@ -69,7 +75,7 @@ WP.module = {
                 loader: "ts-loader",
                 options: {
                     configFile: "tsconfig.loader.json",
-                }
+                },
             }],
         },
     ],
