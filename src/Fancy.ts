@@ -37,13 +37,16 @@ export interface FancyTranslations extends LexiconTranslations {
     }
 }
 
-export type FancyGroupItem = FancyBoxGroupItem;
+export interface FancyGroupItem extends FancyBoxGroupItem {
+}
+
+export interface FancyInstance extends FancyBoxInstance {
+}
+
+export interface FancyOptions extends FancyBoxOptions {
+}
 
 export type FancyItem = string | JQuery<HTMLElement> | FancyGroupItem | FancyGroupItem[];
-
-export type FancyInstance = FancyBoxInstance;
-
-export type FancyOptions = FancyBoxOptions;
 
 /**
  * Helper class for initial jQuery.FancyBox setup.
