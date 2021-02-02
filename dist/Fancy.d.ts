@@ -82,8 +82,10 @@ export declare class Fancy {
     /**
      * Wrapper for JQuery.FancyBox.close.
      * Closes an existing instance.
+     *
+     * @param all Close all instances?
      */
-    static close(): void;
+    static close(all?: boolean): void;
     /**
      * Wrapper for JQuery.FancyBox.destroy.
      * Closes all instances and decouples all events.
@@ -92,7 +94,9 @@ export declare class Fancy {
     /**
      * Wrapper for JQuery.FancyBox.getInstance.
      * Returns the current instance.
+     *
+     * @param command Command for the current instance.
      */
-    static getInstance(): FancyInstance;
+    static getInstance(command?: string | (() => void)): FancyInstance;
 }
 export default Fancy;
