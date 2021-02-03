@@ -129,7 +129,6 @@ class Fancy {
         Init.translate();
     }
     /**
-     * Wrapper for JQuery.FancyBox.open.
      * Creates a new instance.
      *
      * @param items Group items.
@@ -140,7 +139,6 @@ class Fancy {
         return $.fancybox.open(items, options, index);
     }
     /**
-     * Wrapper for JQuery.FancyBox.close.
      * Closes an existing instance.
      *
      * @param all Close all instances?
@@ -149,14 +147,12 @@ class Fancy {
         $.fancybox.close(all);
     }
     /**
-     * Wrapper for JQuery.FancyBox.destroy.
      * Closes all instances and decouples all events.
      */
     static destroy() {
         $.fancybox.destroy();
     }
     /**
-     * Wrapper for JQuery.FancyBox.getInstance.
      * Returns the current instance.
      *
      * @param command Command for the current instance.

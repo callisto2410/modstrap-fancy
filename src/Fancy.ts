@@ -179,7 +179,6 @@ export class Fancy {
     }
 
     /**
-     * Wrapper for JQuery.FancyBox.open.
      * Creates a new instance.
      *
      * @param items Group items.
@@ -187,7 +186,6 @@ export class Fancy {
     public static open(items: FancyItem): FancyInstance;
 
     /**
-     * Wrapper for JQuery.FancyBox.open.
      * Creates a new instance.
      *
      * @param items Group items.
@@ -196,7 +194,6 @@ export class Fancy {
     public static open(items: FancyItem, options: FancyOptions | undefined): FancyInstance;
 
     /**
-     * Wrapper for JQuery.FancyBox.open.
      * Creates a new instance.
      *
      * @param items Group items.
@@ -206,7 +203,6 @@ export class Fancy {
     public static open(items: FancyItem, options: FancyOptions | undefined, index: number): FancyInstance;
 
     /**
-     * Wrapper for JQuery.FancyBox.open.
      * Creates a new instance.
      *
      * @param items Group items.
@@ -218,7 +214,6 @@ export class Fancy {
     }
 
     /**
-     * Wrapper for JQuery.FancyBox.close.
      * Closes an existing instance.
      *
      * @param all Close all instances?
@@ -228,7 +223,6 @@ export class Fancy {
     }
 
     /**
-     * Wrapper for JQuery.FancyBox.destroy.
      * Closes all instances and decouples all events.
      */
     public static destroy(): void {
@@ -236,7 +230,6 @@ export class Fancy {
     }
 
     /**
-     * Wrapper for JQuery.FancyBox.getInstance.
      * Returns the current instance.
      *
      * @param command Command for the current instance.
