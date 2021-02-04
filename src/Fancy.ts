@@ -123,6 +123,7 @@ class Init {
         $.fancybox.defaults.transitionEffect = "zoom-in-out";
         $.fancybox.defaults.loop = true;
         $.fancybox.defaults.smallBtn = false;
+        $.fancybox.defaults.closeExisting = true;
         $.fancybox.defaults.buttons = [
             "zoom",
             "slideShow",
