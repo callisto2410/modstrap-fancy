@@ -52,6 +52,9 @@ export declare type FancyItem = string | JQuery<HTMLElement> | FancyGroupItem | 
  * @see close
  * @see destroy
  * @see getInstance
+ *
+ * Github: {@link https://fancyapps.com/fancybox/3/}
+ * Homepage: {@link https://github.com/fancyapps/fancybox}
  */
 export declare class Fancy {
     /**

@@ -121,6 +121,9 @@ Init.main();
  * @see close
  * @see destroy
  * @see getInstance
+ *
+ * Github: {@link https://fancyapps.com/fancybox/3/}
+ * Homepage: {@link https://github.com/fancyapps/fancybox}
  */
 class Fancy {
     /**
