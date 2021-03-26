@@ -1,6 +1,5 @@
 const Path = require("path");
 const Webpack = require("webpack");
-const TerserPlugin = require("terser-webpack-plugin");
 
 const WPack = {
     mode: "production",
@@ -19,6 +18,7 @@ const WPack = {
     },
 };
 
+// noinspection JSUnresolvedFunction
 WPack.plugins = [
     new Webpack.ProvidePlugin({
         $: "jquery",
@@ -29,23 +29,12 @@ WPack.plugins = [
 
 WPack.optimization = {
     minimize: true,
-    minimizer: [
-        new TerserPlugin({
-            terserOptions: {
-                format: {
-                    comments: false,
-                },
-            },
-            extractComments: false,
-            parallel: true,
-        }),
-    ],
     splitChunks: {
         cacheGroups: {
             vendor: {
                 test: /[\\/]node_modules[\\/]/,
-                name: 'vendor',
-                chunks: 'all',
+                name: "vendor",
+                chunks: "all",
             },
         },
     },
